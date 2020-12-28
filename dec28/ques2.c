@@ -36,6 +36,7 @@ struct node *rightRotate(struct node *y)
     y->left = T2;
     y->height = max(height(y->left), height(y->right)) + 1;
     x->height = max(height(x->left), height(x->right)) + 1;
+    printf("Right Rotate\n");
     return x;
 }
 struct node *leftRotate(struct node *x)
@@ -46,12 +47,14 @@ struct node *leftRotate(struct node *x)
     x->right = T2;
     x->height = max(height(x->left), height(x->right)) + 1;
     y->height = max(height(y->left), height(y->right)) + 1;
+    printf("Left Rotate\n");
     return y;
 }
 int getBalance(struct node *N)
 {
     if (N == NULL)
         return 0;
+    printf("Balance Factor : %d\n", height(N->left) - height(N->right));
     return height(N->left) - height(N->right);
 }
 struct node *insert(struct node *node, int data)
